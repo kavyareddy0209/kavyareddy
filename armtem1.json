@@ -1,0 +1,52 @@
+ {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+        "apiVersion": "2018-11-01",
+        "type": "Microsoft.Web/sites",
+        "kind": "app",
+        "name": "[parameters('quadranttechnologies')]",
+        "location": "[parameters('eastus')]",
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('ASP-kavyarg-b5e3'))]"
+        }
+      },
+      {
+        "apiVersion": "2018-02-01",
+        "type": "Microsoft.Web/serverfarms",
+        "kind": "app",
+        "name": "[parameters('quadranttechnologies')]",
+        "location": "[parameters('eastus')]",
+        "properties": {
+          "sku": {
+            "family": "B",
+            "capacity": 1,
+            "name": "B1"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "quadranttechnologies": {
+        "type": "string",
+        "metadata": {
+          "description": "webapp1"
+        }
+      },
+      "eastus": {
+        "type": "string",
+        "defaultValue": "East US",
+        "metadata": {
+          "description": "east us"
+        }
+      },
+      "ASP-kavyarg-b5e3": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the App Service Plan."
+        }
+      }
+    }
+  }
+ 
