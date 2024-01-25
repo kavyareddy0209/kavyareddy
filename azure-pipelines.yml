@@ -1,5 +1,5 @@
 # Starter pipeline
- -task: CopyFiles@2
+ task: CopyFiles@2
   inputs:
     SourceFolder: 'C:\Users\Quadrant\Desktop\arm1\armtem1.json'
     Contents: 'arm1.json'
